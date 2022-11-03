@@ -333,20 +333,28 @@ body {
   display: flex;
   justify-content: center;
 }
-
-.net-item {
+.social-item:not(:first-child){
+  margin-left: 10px;
+}
+.social-link {
   display: flex;
-  width: 44px;
-  height: 44px;
-  fill: #afb1b8;
   justify-content: center;
   align-items: center;
+
+  width: 44px;
+  height: 44px;
+
+  fill: #afb1b8;
   border-radius: 50%;
 }
-.net-item:hover {
-  fill: white;
-  background-color: #188ce8;
+.social-link:hover svg {
+  fill: var(--primary-write-color);
 }
+.social-link:hover {
+   background-color:var(--accent-color);
+ 
+}
+
 .social-svg {
   width: 20px;
   height: 20px;
