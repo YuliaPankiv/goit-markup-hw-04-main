@@ -12,6 +12,7 @@
   --bd-color-filter: #f5f4fa;
 
   --button-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 h1,
 h2,
@@ -80,6 +81,7 @@ body {
 }
 .logo-studio {
   color: var(--primary-black-color);
+  transition: color 250ms var(--timing-function);
 }
 .logo :hover,
 .logo :focus {
@@ -94,14 +96,20 @@ body {
 .site-nav {
   display: flex;
   column-gap: 50px;
-  padding-top: 32px;
-  padding-bottom: 32px;
 }
 
 .site-nav .link {
+  position: relative;
+  display: block;
+  padding-top: 32px;
+  padding-bottom: 32px;
+
   color: var(--title-text-color);
+  letter-spacing: 0.02em;
   text-decoration: none;
+  transition: color 250ms var(--timing-function);
 }
+
 .site-nav .link:hover,
 .site-nav .link:focus {
   color: var(--accent-color);
@@ -110,11 +118,25 @@ body {
   color: var(--accent-color);
 }
 
+.site-nav .link.current::after {
+  content: ' ';
+
+  position: absolute;
+  height: 4px;
+  bottom: 0;
+  left: 0;
+
+  width: 100%;
+  background: #188ce8;
+  border-radius: 2px;
+}
 .contact-list .link {
   display: flex;
   align-items: center;
+
   color: var(--primary-text-color);
   text-decoration: none;
+  transition: color 250ms var(--timing-function);
 }
 
 .contact-item {
@@ -128,6 +150,7 @@ body {
 
 .contact-list {
   display: flex;
+
   margin-left: auto;
   align-items: center;
 }
@@ -161,6 +184,7 @@ body {
 }
 .footer-address .logo-studio {
   color: var(--primary-bd-color);
+  transition: color 250ms var(--timing-function);
 }
 .footer-address .logo-studio:hover,
 .footer-address .logo-studio:focus {
@@ -196,20 +220,23 @@ body {
 
 /* order */
 .hero {
-  display: flex;
+  /* display: flex; */
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  /* justify-content: center; */
+  /* align-items: center; */
   padding-top: 200px;
   padding-bottom: 200px;
-  background-color: #C4C4C4;
-    background-image: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)),
+    text-align: center;
+
+  background-color: #c4c4c4;
+  background-image: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)),
     url(../images/bgi.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   letter-spacing: 0.06em;
-  text-align: center;
+  /* transition: background 5s var(--timing-function); */
+
 }
 .hero-title {
   margin-bottom: 30px;
@@ -238,11 +265,63 @@ body {
   cursor: pointer;
   border-color: transparent;
   box-shadow: var(--button-shadow);
+  transition: background 250ms var(--timing-function);
 }
 
 .button:hover,
 .button:focus {
   background-color: var(--button-active);
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  opacity: 1;
+  z-index: 1;
+  transition: opacity 250ms var(--timing-function);
+}
+.backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  width: 45vw;
+  height: 55vh;
+
+  transition: transform 250ms var(--timing-function);
+  transform: translate(-50%, -50%) scale(1);
+  background: #ffffff;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+
+}
+
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(0.8);
+}
+.close:hover {
+  background-color: rgba(238, 31, 31, 0.813);
+  fill: var(--primary-write-color);
+}
+
+.close {
+  display: flex;
+  margin-left: auto;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
 }
 
 /* feature */
@@ -303,6 +382,26 @@ body {
   line-height: 1.16;
 }
 
+/* work */
+
+.work-wrapper {
+  position: relative;
+}
+.work-description {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 27px;
+
+  color: #ffffff;
+  background-image: linear-gradient(rgba(47, 48, 58, 0.8), rgba(47, 48, 58, 0.8));
+
+  font-weight: 700;
+  line-height: 16px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
 .work-section {
   padding-top: 0;
 }
@@ -333,7 +432,7 @@ body {
   display: flex;
   justify-content: center;
 }
-.social-item:not(:first-child){
+.social-item:not(:first-child) {
   margin-left: 10px;
 }
 .social-link {
@@ -346,13 +445,13 @@ body {
 
   fill: #afb1b8;
   border-radius: 50%;
+  transition: background 250ms var(--timing-function), color 250ms var(--timing-function);
 }
 .social-link:hover svg {
   fill: var(--primary-write-color);
 }
 .social-link:hover {
-   background-color:var(--accent-color);
- 
+  background-color: var(--accent-color);
 }
 
 .social-svg {
@@ -372,14 +471,15 @@ body {
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
 }
-/* .card-set {
-  column-gap: 30px;
-} */
 
 .card-set > .item {
-  flex-basis: calc(100% / 3 - 30px);
+  /* flex-basis: calc(100% / 3 - 30px); */
   margin-left: 30px;
   margin-top: 30px;
+}
+.command-wrapper {
+  padding: 30px 32px;
+  text-align: center;
 }
 .person-name {
   margin-bottom: 10px;
@@ -396,10 +496,7 @@ body {
   margin-bottom: 16px;
 }
 
-.command-wrapper {
-  padding: 30px 32px;
-  text-align: center;
-}
+
 /* customers */
 .customers .lists-svg {
   gap: 30px;
@@ -417,6 +514,7 @@ body {
   align-items: center;
   border: 1px solid #afb1b8;
   border-radius: 4px;
+  transition: fill 250ms var(--timing-function);
 }
 .customer-item:hover {
   fill: var(--accent-color);
@@ -448,11 +546,45 @@ body {
   cursor: pointer;
   border-radius: 4px;
   border-color: transparent;
+  transition: background 250ms var(--timing-function);
 }
 
 .portfolio .card-set {
   flex-wrap: wrap;
 }
+
+.box {
+  position: relative;
+  overflow: hidden;
+}
+.card-overlay {
+  display: flex;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  transform: translateY(200%);
+  transition: transform 250ms var(--timing-function), opacity 2050ms var(--timing-function);
+  background: rgba(33, 150, 243, 0.9);
+}
+.desc-overlay {
+  padding: 63px 24px;
+  font-size: 18px;
+  line-height: 1.56;
+  opacity: 0;
+  transition: opacity 250ms var(--timing-function) 250ms;
+
+  color: #ffffff;
+}
+
+.box:hover .card-overlay {
+  transform: translate(0);
+}
+.box:hover .desc-overlay {
+  opacity: 1;
+}
+
 .portfolio .item:hover,
 .portfolio .item:focus {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
