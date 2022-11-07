@@ -323,6 +323,11 @@ body {
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 50%;
 }
+.icon-close{
+  
+  width: 18px;
+  height: 18px;
+}
 
 /* feature */
 
