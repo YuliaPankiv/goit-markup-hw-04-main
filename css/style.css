@@ -425,6 +425,12 @@ body {
   border: transparent;
   transition: background 250ms var(--timing-function);
 }
+.checkbox:focus:not(:checked) + .icon-checkbox {
+  outline: 2px solid#188ce8;
+}
+.checkbox:focus:checked + .icon-checkbox {
+  outline: 2px solid var(--primary-black-color);
+}
 
 .backdrop.is-hidden .modal {
   transform: translate(-50%, -50%) scale(0.8);
