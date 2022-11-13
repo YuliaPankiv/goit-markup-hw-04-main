@@ -286,8 +286,8 @@ body {
   text-transform: uppercase;
 }
 .hero .button {
-  min-width: 216px;
-  min-height: 50px;
+  max-width: 216px;
+    max-height: 50px;
 
   box-shadow: var(--button-shadow);
   font-weight: 700;
@@ -587,7 +587,7 @@ body {
   display: flex;
   justify-content: center;
 }
-.social-item:not(:first-child) {
+.command-wrapper .social-item:not(:first-child) {
   margin-left: 10px;
 }
 .social-link {
