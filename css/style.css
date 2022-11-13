@@ -287,8 +287,8 @@ body {
 }
 .hero .button {
   max-width: 216px;
-    max-height: 50px;
-
+  max-height: 50px;
+  padding: 10px 32px;
   box-shadow: var(--button-shadow);
   font-weight: 700;
   font-size: 16px;
