@@ -244,7 +244,8 @@ body {
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
   border-radius: 4px;
 }
-.sent-email {}
+.sent-email {
+}
 .form-email .btn-sent {
   padding: 10px 28px;
 }
@@ -338,7 +339,7 @@ body {
 
   width: 528px;
   height: 581px;
-    transform: translate(-50%, -50%) scale(1);
+  transform: translate(-50%, -50%) scale(1);
   background: var(--primary-write-color);
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
@@ -409,9 +410,11 @@ body {
 }
 .icon-checkbox {
   position: absolute;
-  left: 28px;
+  left: 12px;
   width: 16px;
   height: 15px;
+  transform: translateY(-3px);
+
   background: white;
   border-radius: 2px;
   border: 2px solid var(--title-text-color);
@@ -436,27 +439,27 @@ body {
 
 .label-text .conditions {
   color: var(--accent-color);
-
 }
 
+.label-checkbox .label-text {
+  padding-left: 36px;
+  font-size: 14px;
+  line-height: 1.7;
 
-.label-checkbox .label-text{
-padding-left: 36px;
-font-size: 14px;
-line-height: 1.7;
+  letter-spacing: 0.03em;
 
-letter-spacing: 0.03em;
-
-color: #757575;
+  color: #757575;
 }
 .label-checkbox {
-  display: inline-block;
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
   margin-top: 20px;
   margin-bottom: 30px;
 }
 .comment {
   width: 100%;
-height: 120px;
+  height: 120px;
   resize: none;
   padding-left: 16px;
 }
@@ -473,7 +476,7 @@ height: 120px;
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 50%;
   cursor: pointer;
- 
+
   transition: background-color 250ms var(--timing-function), fill 250ms var(--timing-function);
 }
 .btn-sent {
