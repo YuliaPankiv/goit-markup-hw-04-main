@@ -338,16 +338,15 @@ body {
 
   width: 528px;
   height: 581px;
-  transform: translate(-50%, -50%) scale(1);
+    transform: translate(-50%, -50%) scale(1);
   background: var(--primary-write-color);
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
-  overflow: auto;
   transition: transform 250ms var(--timing-function);
 }
 .modal .title {
-  margin-bottom: 30px;
+  margin-bottom: 12px;
 
   color: var(--title-text-color);
   font-weight: 700;
@@ -358,7 +357,7 @@ body {
 .form-modal {
   display: flex;
   flex-direction: column;
-  gap: 28px;
+  /* gap: 10px; */
   /* outline: 1px solid tomato; */
 }
 
@@ -395,6 +394,7 @@ body {
   position: relative;
   display: flex;
   flex-direction: column;
+  margin-bottom: 10px;
 }
 
 .modal-svg {
@@ -409,11 +409,11 @@ body {
 }
 .icon-checkbox {
   position: absolute;
-  left: 32px;
+  left: 28px;
   width: 16px;
   height: 15px;
   background: white;
-  border-radius: 4px;
+  border-radius: 2px;
   border: 2px solid var(--title-text-color);
   transition: background 250ms var(--timing-function);
 }
@@ -425,12 +425,6 @@ body {
   border: transparent;
   transition: background 250ms var(--timing-function);
 }
-.checkbox:focus:not(:checked) + .icon-checkbox {
-  outline: 2px solid#188ce8;
-}
-.checkbox:focus:checked + .icon-checkbox {
-  outline: 2px solid var(--primary-black-color);
-}
 
 .backdrop.is-hidden .modal {
   transform: translate(-50%, -50%) scale(0.8);
@@ -439,20 +433,38 @@ body {
   background-color: var(--primary-write-color);
   fill: var(--accent-color);
 }
+
 .label-text .conditions {
   color: var(--accent-color);
+
+}
+
+
+.label-checkbox .label-text{
+padding-left: 36px;
+font-size: 14px;
+line-height: 1.7;
+
+letter-spacing: 0.03em;
+
+color: #757575;
 }
 .label-checkbox {
   display: inline-block;
+  margin-top: 20px;
+  margin-bottom: 30px;
 }
 .comment {
   width: 100%;
+height: 120px;
   resize: none;
   padding-left: 16px;
 }
 
 .close {
   position: absolute;
+  top: 8px;
+  right: 8px;
   display: flex;
   margin-left: auto;
   align-items: center;
@@ -460,8 +472,8 @@ body {
   height: 30px;
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 50%;
-  top: 8px;
-  right: 8px;
+  cursor: pointer;
+ 
   transition: background-color 250ms var(--timing-function), fill 250ms var(--timing-function);
 }
 .btn-sent {
@@ -469,7 +481,7 @@ body {
   align-items: center;
   text-align: center;
   padding: 10px 52px;
-  margin: auto;
+  margin: 0 auto;
 
   color: var(--primary-write-color);
   background: var(--accent-color);
